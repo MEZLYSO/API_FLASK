@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 app = Flask("__name__")
 
 
-#Lista de items
+# Lista de items
 frameworks = [
     {
         "id": 1,
@@ -15,7 +15,9 @@ frameworks = [
     }
 ]
 
-#Ruta inicial
+# Ruta inicial
+
+
 @app.route("/")
 def index():
     return "API"
@@ -27,6 +29,8 @@ def view_frameworks():
     return jsonify(frameworks)
 
 # Obtener un elemento a partir del nombre de un elemento de JSON
+
+
 @app.route("/items/<string:name>", methods=["GET"])
 def view_framework(name):
     framework = []
@@ -36,6 +40,8 @@ def view_framework(name):
     return jsonify(framework[0])
 
 # Me permite insertar elementos en mi lista
+
+
 @app.route("/items", methods=["POST"])
 def add_framework():
     # framework = request.json
